@@ -4,7 +4,7 @@ A web-based virtual reality platform that allows users to view, create, and inte
 Prerequisites
 Before you begin, ensure you have met the following requirements:
 
-Node.js: You need to have Node.js installed on your local machine. You can download it here.
+Node.js: You need to have Node.js installed on your local machine. You can download it from https://nodejs.org/en.
 MongoDB: Either a local MongoDB instance or a cloud-based MongoDB Atlas account.
 Git: Basic understanding of Git for cloning the repository.
 Installation Instructions
