@@ -37,6 +37,6 @@ Replace <username>, <password>, and your_database_name with your MongoDB credent
 5. Run the Application
 To run the application go into the directory of the file and open terminal.
 Type:
-npm start server
+npm run dev
 
 Now, open the browser and type localhost:5000
