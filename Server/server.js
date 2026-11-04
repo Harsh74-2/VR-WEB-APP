@@ -6,7 +6,8 @@ const cors = require('cors');
 const path = require('path')
 const userRoutes = require('./routes/userRoutes');
 const tourRoutes = require('./routes/tourRoutes');
-const fileUploadRoutes = require('./routes/fileUpload')
+const fileUploadRoutes = require('./routes/fileUpload');
+const agentRoutes = require('./routes/agentRoutes');
 
 const app = express();
 
@@ -27,13 +28,17 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTop
 app.use('/api/users', userRoutes);
 app.use('/api/tours', tourRoutes);
 app.use('/api/file', fileUploadRoutes);
+app.use('/api', agentRoutes);
 
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'client/build')));
+// Serve static files from the React app (the client lives at the repo root,
+// not inside Server/ — the old path pointed at Server/client/build, which
+// never existed)
+const CLIENT_BUILD = path.join(__dirname, '..', 'Client', 'build');
+app.use(express.static(CLIENT_BUILD));
 
 // The "catchall" handler: for any request that doesn't match one above, send back React's index.html file.
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+  res.sendFile(path.join(CLIENT_BUILD, 'index.html'));
 });
 
 const PORT = process.env.PORT || 5000;

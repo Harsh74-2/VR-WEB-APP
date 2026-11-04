@@ -11,6 +11,7 @@ import Search from './components/Search';
 import Login from './components/Login';
 import Register from './components/Register';
 import FileUpload from './components/fileUpload';
+import './App.css';
 
 function App() {
   return (
