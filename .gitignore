@@ -25,3 +25,7 @@ yarn-error.log*
 .env
 Server/.env
 Server/Client/.env
+
+# scratch
+.playwright-cli/
+*.log
